@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm23pqetbflrq"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_tetyj"]
+[ext_resource type="Texture2D" uid="uid://cng4qft0sv4i0" path="res://assets/textures/enemyboat.png" id="2_0wvti"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u3a4q"]
+radius = 22.0
+height = 80.0
+
+[node name="Enemy" type="Area2D"]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_tetyj")
+speed = 500
+hp = 1
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-0.5, -1.5)
+scale = Vector2(0.227273, 0.249284)
+texture = ExtResource("2_0wvti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_u3a4q")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -52)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

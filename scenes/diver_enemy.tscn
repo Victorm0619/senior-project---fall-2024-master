@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmbeb4icp71di"]
+
+[ext_resource type="PackedScene" uid="uid://cm23pqetbflrq" path="res://scenes/enemy.tscn" id="1_e8eha"]
+[ext_resource type="Texture2D" uid="uid://cghefi64gva8w" path="res://assets/textures/2ndboat.png" id="2_odqir"]
+
+[node name="DiverEnemy" instance=ExtResource("1_e8eha")]
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2(-0.499998, 3.87)
+scale = Vector2(0.75, 0.606667)
+texture = ExtResource("2_odqir")
